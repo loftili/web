@@ -2,7 +2,7 @@
 
 return array(
   'debug' => true,
-  'url' => 'http://lofti.li',
+  'url' => 'http://lofti.local',
   'timezone' => 'UTC',
   'locale' => 'en',
   'fallback_locale' => 'en',

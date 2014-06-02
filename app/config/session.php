@@ -8,8 +8,8 @@ return array(
   'connection' => null,
   'table' => 'sessions',
   'lottery' => array(2, 100),
-  'cookie' => 'laravel_session',
+  'cookie' => 'lftses',
   'path' => '/',
-  'domain' => null,
+  'domain' => '.lofti.local',
   'secure' => false,
 );
