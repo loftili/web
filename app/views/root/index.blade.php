@@ -2,4 +2,5 @@
 
 @section('content')
 {{ $dir or '' }}
+{{ App::environment() }}
 @endsection
