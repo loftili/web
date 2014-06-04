@@ -6,7 +6,11 @@
   <link rel="stylesheet" type="text/css" href="/css/application.css" />
 </head>
 <body>
-@yield('content')
-<script src="/js/application.js" type="text/javascript"></script>
+  <header class="main" lft-header></header>
+  <div class="page">
+    @yield('content')
+  </div>
+  <footer class="main" lft-footer></footer>
+  <script src="/js/application.js" type="text/javascript"></script>
 </body>
 </html>

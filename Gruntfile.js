@@ -52,6 +52,10 @@ module.exports = function() {
     },
 
     watch: {
+      styles: {
+        files: 'assets/sass/**/*.sass',
+        tasks: ['sass']
+      }
     }
 
   });
