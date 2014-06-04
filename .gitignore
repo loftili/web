@@ -3,6 +3,9 @@
 /wordpress/*
 /node_modules
 /bower_components
+/public/js
+/public/css
+.sass-cache
 composer.phar
 composer.lock
 .env.*.php

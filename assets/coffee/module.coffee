@@ -1,0 +1,1 @@
+lft = angular.module 'lft', []
