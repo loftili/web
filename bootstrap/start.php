@@ -2,9 +2,12 @@
 
 $app = new Illuminate\Foundation\Application;
 
-$env = $app->detectEnvironment(array(
-  'local' => array('homestead', '*.local', 'dhuws'),
-));
+$env = $app->detectEnvironment(function() {
+  if(array_key_exists('LOFT_PRD', $_SERVER))
+    return 'production';
+  else
+    return 'local';
+});
 
 $app->bindInstallPaths(require __DIR__.'/paths.php');
 
