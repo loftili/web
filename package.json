@@ -1,0 +1,18 @@
+{
+  "name": "loftili-web",
+  "version": "0.0.0",
+  "description": "the web appliction for loftili",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/loftili/web.git"
+  },
+  "author": "Danny Hadley <dadley@sizethreestudios.com>",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/loftili/web/issues"
+  },
+  "homepage": "https://github.com/loftili/web",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
