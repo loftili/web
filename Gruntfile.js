@@ -15,10 +15,12 @@ module.exports = function() {
   }
 
   grunt.initConfig({
+
     clean: {
       obj: ['assets/obj'],
       dist: ['public/js', 'public/css']
     },
+
     sass: {
       build: {
         options: {
@@ -29,6 +31,7 @@ module.exports = function() {
         }
       }
     },
+
     coffee: {
       src: {
         options: {
@@ -40,14 +43,17 @@ module.exports = function() {
         }
       }
     },
+
     concat: {
       dist: {
         src: ['bower_components/angular/angular.js', 'assets/obj/js/app.js'],
         dest: 'public/js/application.js',
       },
     },
+
     watch: {
     }
+
   });
 
   grunt.registerTask('default', ['clean','coffee','concat','sass']);
