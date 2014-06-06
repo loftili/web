@@ -7,10 +7,7 @@
   </div>
   <div class="posts">
     @foreach($posts as $post)
-    <div class="post">
-      <h1>{{ $post->post_title }}</h1>
-      <p>{{ $post->post_content }}</p>
-    </div>
+    @include('blog.post', array('post' => $post))
     @endforeach
   </div>
 </div>
