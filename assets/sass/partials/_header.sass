@@ -1,13 +1,17 @@
 header
   margin: 0
-  background: $dark-grey
-  color: lighten($dark-grey, 40%)
+  color: $dark-grey
   padding: 10px 0
 
   &.main
     position: relative
     width: 100%
-
-    h1
-      font-size: 12px
-      font-weight: $font-weight-dark
+  
+    .banner
+      +clearfix
+      .icon
+        float: left
+      h1
+        float: left
+        display: block
+        line-height: 30px

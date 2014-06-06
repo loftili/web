@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <title>{{ trans('global.title') }} | {{ $title or trans('global.title_message') }}</title>
-  <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/fonts/index.css" />
   <link rel="stylesheet" type="text/css" href="/css/application.css" />
 </head>
 <body>

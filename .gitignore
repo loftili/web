@@ -6,6 +6,7 @@
 /public/js
 /public/css
 /public/error_log
+/public/fonts/*
 /assets/obj
 .sass-cache
 composer.phar

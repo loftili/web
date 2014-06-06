@@ -5,5 +5,4 @@ lft.directive 'lftHeader', [() ->
     replace: true
     link: ($scope, $element, $attrs) ->
 
-
 ]
