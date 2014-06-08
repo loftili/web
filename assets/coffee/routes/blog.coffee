@@ -1,0 +1,3 @@
+lft.config ['$routeProvider', ($routeProvider) ->
+
+]

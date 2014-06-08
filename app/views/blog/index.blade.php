@@ -7,7 +7,7 @@
   </div>
   <div class="posts">
     @foreach($posts as $post)
-    @include('blog.post', array('post' => $post))
+      <div class="blog-post" lft-blog-post post="{{ htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8'); }}"></div>
     @endforeach
   </div>
 </div>

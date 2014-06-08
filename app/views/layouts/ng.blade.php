@@ -6,7 +6,7 @@
 <body>
   <header class="main" lft-header></header>
   <div class="page">
-    @yield('content')
+    <div ng-view></div>
   </div>
   <footer class="main" lft-footer></footer>
   <script src="/js/application.js" type="text/javascript"></script>

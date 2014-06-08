@@ -1,1 +1,1 @@
-lft = angular.module 'lft', []
+lft = angular.module 'lft', ['ngRoute']

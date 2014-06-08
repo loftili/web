@@ -1,0 +1,7 @@
+.blog-post
+  .top
+    .post-title 
+      h1 {{ post.post_title }}
+    .post-date 
+      h3 {{ post.post_date | date:medium }}
+  .content(ng-bind-html="htmlSafe()")

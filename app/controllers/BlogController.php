@@ -9,4 +9,8 @@ class BlogController extends BaseController {
     return View::make('blog.index')->with('posts', $posts);
   }
 
+  public function single($id) {
+    return "hi" . $id;
+  }
+
 }

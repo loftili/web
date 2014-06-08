@@ -8,4 +8,5 @@ Route::group(array('domain' => 'lofti.'.$tld), function() {
 
 Route::group(array('domain' => 'blog.lofti.'.$tld), function() {
   Route::get('/', array('as' => 'blog_root', 'uses' => 'BlogController@home'));
+  Route::get('/{id}', 'BlogController@single');
 });
