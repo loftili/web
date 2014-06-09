@@ -3,6 +3,6 @@
     .post-title 
       h1 {{ post.post_title }}
     .post-date 
-      h3.date {{ post.post_date | date:medium }}
-      h3.author(ng-if="post.post_author.first_name[0]") via {{ post.post_author.first_name[0] }}
+      h3.date {{ post.timestamp | date:medium }}
+      h3.author(ng-if="post.author.first_name[0]") via {{ post.author.first_name[0] }}
   .content(ng-bind-html="htmlSafe()")

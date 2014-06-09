@@ -8,7 +8,8 @@ class BlogController extends BaseController {
     $posts = get_posts();
     foreach($posts as $post) {
       $author_meta = get_user_meta($post->post_author);
-      $post->post_author = $author_meta;
+      $post->author = $author_meta;
+      $post->timestamp = strtotime($post->post_date) * 1000;
     }
     return View::make('blog.index')->with('posts', $posts);
   }
