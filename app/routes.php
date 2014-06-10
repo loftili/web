@@ -4,9 +4,7 @@ $tld = App::environment() === 'production' ? 'li' : 'local';
 
 Route::group(array('domain' => 'lofti.'.$tld), function() {
   Route::get('/', 'HomeController@index');
-});
 
-Route::group(array('domain' => 'blog.lofti.'.$tld), function() {
-  Route::get('/', array('as' => 'blog_root', 'uses' => 'BlogController@home'));
-  Route::get('/{id}', 'BlogController@single');
+  Route::get('/blog', array('as' => 'blog_root', 'uses' => 'BlogController@home'));
+  Route::get('/blog/{id}', 'BlogController@single');
 });
