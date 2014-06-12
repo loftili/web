@@ -104,7 +104,6 @@ class WordpressOptionsSeeder extends Seeder {
       $opt->save();
     }
 
-    $this->command->info("-- Success!");
   }
 
 }
