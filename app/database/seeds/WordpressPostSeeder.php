@@ -3,6 +3,7 @@
 class WordpressPostSeeder extends seeder {
 
   public function run() {
+    $this->command->info('- Creating a few wp_posts');
     $date_now = new DateTime;
     $post = new BlogPost;
     $post->post_author = 1;
