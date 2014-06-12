@@ -7,7 +7,7 @@ class WordpressWpOptions extends Migration {
 
   public function up() {
     Schema::create('wp_options', function($table) {
-      $table->bigInteger('option_id');
+      $table->bigIncrements('option_id');
       $table->string('option_name', 64);
       $table->longText('option_value');
       $table->string('autoload', 20);
