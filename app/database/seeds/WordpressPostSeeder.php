@@ -1,6 +1,6 @@
 <?php
 
-class WordpressPostSeeder extends seeder {
+class WordpressPostSeeder extends Seeder {
 
   public function run() {
     $this->command->info('- Creating a few wp_posts');

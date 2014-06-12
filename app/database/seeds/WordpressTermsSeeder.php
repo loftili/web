@@ -1,6 +1,6 @@
 <?php
 
-class WordpressTermsSeeder extends seeder {
+class WordpressTermsSeeder extends Seeder {
 
   public function run() {
     $this->command->info('- Creating default wp_terms');
