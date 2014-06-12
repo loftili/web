@@ -17,6 +17,7 @@ class WordpressPostSeeder extends seeder {
     $post->post_modified_gmt = $date_now;
     $post->post_parent = 0;
     $post->guid = 'fakeguidseed-1';
+    $post->comment_status = 'open';
     $post->menu_order = 0;
     $post->post_type = 'post';
     $post->comment_count = 0;

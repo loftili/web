@@ -83,7 +83,6 @@ class WordpressOptionsSeeder extends Seeder {
       'comments_per_page' => 50,
       'default_comments_page' => 'newest',
       'comment_order' => 'asc',
-      'sticky_posts' => '',
       'widget_categories' => '',
       'widget_text' => '',
       'widget_rss' => '',
