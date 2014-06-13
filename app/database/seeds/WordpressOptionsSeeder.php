@@ -4,6 +4,7 @@ class WordpressOptionsSeeder extends Seeder {
 
   public function run() {
     $this->command->info('- Filling in the wp_options');
+
     $roles = File::get(app_path().'/database/wp/user_roles.txt');
 
     $options = array(

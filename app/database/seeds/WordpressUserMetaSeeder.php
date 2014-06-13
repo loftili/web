@@ -3,6 +3,8 @@
 class WordpressUserMetaSeeder extends Seeder {
   
   public function run() {
+    $this->command->info('- Creating user meta for the admin user');
+
     $meta = array(
       'first_name' => 'Admin',
       'last_name' => 'Lofti',
