@@ -20,7 +20,7 @@ class BlogController extends BaseController {
     if($post === null)
       return Redirect::route('blog_root');
 
-    return View::make('blog.view')->with('post', $post);
+    return View::make('blog.view')->with('post', $post)->with('title', $post->post_title);
   }
 
 }
