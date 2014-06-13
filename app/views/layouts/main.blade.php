@@ -10,5 +10,6 @@
   </div>
   <footer class="main" lft-footer></footer>
   <script src="/js/application.js" type="text/javascript"></script>
+  @include('partial.google')
 </body>
 </html>
