@@ -15,7 +15,12 @@ class BlogController extends BaseController {
   }
 
   public function single($id) {
-    return "hi" . $id;
+    $post = BlogPost::find($id);
+
+    if($post === null)
+      return Redirect::route('blog_root');
+
+    return View::make('blog.view')->with('post', $post);
   }
 
 }
