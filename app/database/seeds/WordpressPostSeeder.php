@@ -14,7 +14,7 @@ class WordpressPostSeeder extends Seeder {
       $post->post_date_gmt = $date_now;
       $post->post_content = $post_content;
       $post->post_title = substr($post_content, 10, 20);
-      $post->post_status = 'publish';
+      $post->post_status = (int)$i % 2 == 0 ? 'publish' : 'draft';
       $post->post_name = substr($post_content, 10, 20);
       $post->post_modified = $date_now;
       $post->post_modified_gmt = $date_now;
