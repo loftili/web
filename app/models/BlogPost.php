@@ -9,15 +9,19 @@ class BlogPost extends Eloquent {
   public static function findBySlug($slug) {
     $ret = false;
     foreach(static::all() as $post) {
-      $title = $post->post_title;
-      $lower = strtolower($title);
-      $chars = preg_replace('/[^\w\s]/', '', $lower);
-      $dashed = preg_replace('/\s/', '-', $chars);
+      $post_slug = $post->getUrlSlug();
 
-      if($slug === $dashed)
+      if($slug === $post_slug)
         $ret = $post;
     }
     return $ret;
+  }
+
+  public function getUrlSlug() {
+    $title = $this->post_title;
+    $lower = strtolower($title);
+    $chars = preg_replace('/[^\w\s]/', '', $lower);
+    return preg_replace('/\s/', '-', $chars);
   }
 
 }

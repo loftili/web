@@ -15,12 +15,17 @@ class BlogController extends BaseController {
   }
 
   public function single($slug) {
-    $post = BlogPost::findBySlug($slug);
+    $post = BlogPost::find($slug);
 
-    if($post === false)
-      return Redirect::route('blog_root');
-
-    return View::make('blog.view')->with('post', $post)->with('title', $post->post_title);
+    if($post == null) {
+      $post = BlogPost::findBySlug($slug);
+      if($post !== false)
+        return View::make('blog.view')->with('post', $post)->with('title', $post->post_title);
+      else
+        return Redirect::route('blog_root');
+    } else {
+      return Redirect::to('/blog/'.$post->getUrlSlug());
+    }
   }
 
 }
