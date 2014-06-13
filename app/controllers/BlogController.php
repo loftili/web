@@ -1,14 +1,10 @@
 <?php 
 
-require_once Config::get('wordpress.path').'/wp-blog-header.php';
-
 class BlogController extends BaseController {
 
   public function home() {
-    $posts = get_posts();
+    $posts = BlogPost::all();
     foreach($posts as $post) {
-      $author_meta = get_user_meta($post->post_author);
-      $post->author = $author_meta;
       $post->timestamp = strtotime($post->post_date) * 1000;
     }
     return View::make('blog.index')->with('posts', $posts);
@@ -21,7 +17,7 @@ class BlogController extends BaseController {
     if($post == null)
       return $this->singleBySlug($slug);
     else
-      return Redirect::to('/blog/'.$post->getUrlSlug());
+      return $post->post_status === "publish" ? Redirect::to('/blog/'.$post->getUrlSlug()) : Redirect::route('blog_root');
   }
 
   private function singleBySlug($slug) {
