@@ -1,6 +1,7 @@
 .blog-post
   .top
-    .post-title 
+    .post-title
+      a.view-link(ng-href="/blog/{{ post.post_title | blogSlug }}") view
       h1 {{ post.post_title }}
     .post-date 
       h3.date {{ post.timestamp | date:medium }}

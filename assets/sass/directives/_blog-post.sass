@@ -7,13 +7,32 @@
       display: inline-block
       h1, h3
         line-height: 40px
+
     .post-title
       +span-columns(10)
+      position: relative
+      a.view-link
+        +transition(all 400ms ease)
+        position: absolute
+        top: 0px
+        left: 0px
+        opacity: 0.0
+        font-family: $heavy-family
+        line-height: 40px
+
     .post-date
       +span-columns(2)
       text-align: right
       .date, .author
         line-height: 20px
+
+
+  &:hover
+    .top
+      .post-title
+        .view-link
+          left: -40px
+          opacity: 1.0
 
   .content
     p

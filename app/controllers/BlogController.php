@@ -14,10 +14,10 @@ class BlogController extends BaseController {
     return View::make('blog.index')->with('posts', $posts);
   }
 
-  public function single($id) {
-    $post = BlogPost::find($id);
+  public function single($slug) {
+    $post = BlogPost::findBySlug($slug);
 
-    if($post === null)
+    if($post === false)
       return Redirect::route('blog_root');
 
     return View::make('blog.view')->with('post', $post)->with('title', $post->post_title);
