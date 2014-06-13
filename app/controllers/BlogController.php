@@ -15,17 +15,28 @@ class BlogController extends BaseController {
   }
 
   public function single($slug) {
+    // try finding the post by id first
     $post = BlogPost::find($slug);
 
-    if($post == null) {
-      $post = BlogPost::findBySlug($slug);
-      if($post !== false)
-        return View::make('blog.view')->with('post', $post)->with('title', $post->post_title);
-      else
-        return Redirect::route('blog_root');
-    } else {
+    if($post == null)
+      return $this->singleBySlug($slug);
+    else
       return Redirect::to('/blog/'.$post->getUrlSlug());
-    }
+  }
+
+  private function singleBySlug($slug) {
+    $post = BlogPost::findBySlug($slug);
+
+    $okay = $post !== null && $post->post_status === "publish";
+
+    return $okay ? $this->renderSingle($post) : Redirect::route('blog_root');
+  }
+
+  private function renderSingle($post) {
+    return View::make('blog.view')->with(array(
+      'post' => $post, 
+      'title' => $post->post_title
+    ));
   }
 
 }
