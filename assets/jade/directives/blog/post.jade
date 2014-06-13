@@ -7,3 +7,4 @@
       h3.date {{ post.timestamp | date:medium }}
       h3.author(ng-if="post.author.display_name") via {{ post.author.display_name }}
   .content(ng-bind-html="htmlSafe()")
+  .comment-form(lft-blog-post-comment-zone comments="post.comments")

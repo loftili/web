@@ -54,12 +54,12 @@ module.exports = function() {
 
     ngtemplates: {
       build: {
-        src: ['assets/obj/html/directives/*.html', 'assets/obj/html/views/*.html'],
+        src: ['assets/obj/html/directives/**/*.html', 'assets/obj/html/views/*.html'],
         dest: 'assets/obj/js/templates.js',
         options: {
           module: 'lft',
           url: function(url) { 
-            return url.replace(/^assets\/obj\/html\/(.*)\/(.*)\.html$/,'$1.$2');
+            return url.replace(/^assets\/obj\/html\/(.*)\.html$/,'$1').replace(/\//g, '.');
           }
         }
       }
