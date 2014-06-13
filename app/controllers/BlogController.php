@@ -3,8 +3,10 @@
 class BlogController extends BaseController {
 
   public function home() {
-    $posts = BlogPost::all();
+    $posts = BlogPost::where('post_status', '=', 'publish')->get();
     foreach($posts as $post) {
+      $author = $post->author()->first();
+      $post->author = $author;
       $post->timestamp = strtotime($post->post_date) * 1000;
     }
     return View::make('blog.index')->with('posts', $posts);

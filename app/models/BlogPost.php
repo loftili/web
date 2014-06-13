@@ -17,6 +17,10 @@ class BlogPost extends Eloquent {
     return $ret;
   }
 
+  public function author() {
+    return $this->hasOne('WordpressUser', 'ID', 'post_author');
+  }
+
   public function getUrlSlug() {
     $title = $this->post_title;
     $lower = strtolower($title);
