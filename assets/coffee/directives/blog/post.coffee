@@ -2,7 +2,7 @@ lft.directive 'lftBlogPost', ['$sce', ($sce) ->
 
   lftBlogPost =
     restrict: 'EA'
-    templateUrl: 'directives.blog_post'
+    templateUrl: 'directives.blog.post'
     replace: true
     scope: { post: '=' }
     link: ($scope, $element, $attrs) ->
