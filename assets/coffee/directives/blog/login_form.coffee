@@ -4,6 +4,6 @@ lft.directive 'lftBlogLoginForm', [() ->
     restrict: 'EA'
     replace: true
     templateUrl: 'directives.blog.login_form'
-    link: () ->
+    link: ($scope, $element, $attrs) ->
 
 ]
