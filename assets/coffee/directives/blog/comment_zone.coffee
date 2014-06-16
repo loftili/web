@@ -5,6 +5,5 @@ lft.directive 'lftBlogPostCommentZone', [() ->
     replace: true
     templateUrl: 'directives.blog.comment_zone'
     link: () ->
-      console.log 'hi!'
 
 ]
