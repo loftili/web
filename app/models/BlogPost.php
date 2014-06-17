@@ -7,7 +7,7 @@ class BlogPost extends Eloquent {
   public $timestamps = false;
 
   public static function findBySlug($slug) {
-    $ret = false;
+    $ret = null;
     foreach(static::all() as $post) {
       $post_slug = $post->getUrlSlug();
 

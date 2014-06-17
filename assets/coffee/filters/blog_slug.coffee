@@ -5,7 +5,7 @@ lft.filter 'blogSlug', [() ->
       return input
 
     lower = input.toLowerCase()
-    just_chars = input.replace /[^\w\s]/g, ''
+    just_chars = lower.replace /[^\w\s]/g, ''
     dashed = just_chars.replace /\s/g, '-'
 
     dashed
