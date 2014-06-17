@@ -11,7 +11,6 @@ lft.service 'GoogleApi', ['$window', 'GOOGLE', ($window, GOOGLE) ->
 
     p_string = ''
     indx = 0
-    console.log params
 
     angular.forEach params, (value, key) ->
       k_v = [key, value].join '='
@@ -24,8 +23,14 @@ lft.service 'GoogleApi', ['$window', 'GOOGLE', ($window, GOOGLE) ->
 
   GoogleApi =
 
+    finish: (user_info) ->
+      console.log 'finished'
+      console.log user_info
+      delete $window.auth
+
     prompt: () ->
       _handle = $window.open auth_url, 'login', 'width=800,height=600'
+      $window.auth = GoogleApi.finish
       _handle != null
 
 

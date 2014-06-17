@@ -12,5 +12,6 @@
   <script src="/js/application.js" type="text/javascript"></script>
   @include('partial.ng-config')
   @include('partial.google')
+  @yield('scripts')
 </body>
 </html>

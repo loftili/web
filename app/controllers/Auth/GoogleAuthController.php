@@ -25,15 +25,30 @@ class GoogleAuthController extends Controller {
   public function authenticate() {
     $code = Input::get('code');
     $access_token = false;
+    $token_json = '';
 
-    if($code) {
-      $this->client->authenticate($code);
-      $access_token = $this->client->getAccessToken();
-    } else {
+    if($code == null) {
+      Log::debug('Invalid attempt to access google auth callback page');
       return App::abort(401, 'You don\'t really belong here...');
     }
+    
+    try {
+      $this->client->authenticate($code);
+      $token_json = $this->client->getAccessToken();
+    } catch(Exception $e) {
+      Log::debug('Failed google authentication - '.$e);
+      return App::abort(401, 'Authentication with google failed.');
+    }
 
-    return $this->oauth2->userinfo->get()['email'];
+    $google_user = $this->oauth2->userinfo->get();
+
+    $user_json = json_encode(array(
+      'email' => $google_user['email'],
+      'first_name' => $google_user['givenName'],
+      'last_name' => $google_user['familyName']
+    ));
+
+    return View::make('auth.google_callback')->with('user_info', $user_json);
   }
 
 }

@@ -1,5 +1,5 @@
 @extends('layouts.main')
 
 @section('content')
-<p>{{ $log_contents }}</p>
+<code><pre>{{ $log_contents }}</pre></code>
 @endsection
