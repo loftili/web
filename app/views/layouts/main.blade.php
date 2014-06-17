@@ -10,8 +10,7 @@
   </div>
   <footer class="main" lft-footer></footer>
   <script src="/js/application.js" type="text/javascript"></script>
-  @include('partial.ng-config')
-  @include('partial.google')
+  @include('partial.google-analytics')
   @yield('scripts')
 </body>
 </html>

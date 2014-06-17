@@ -1,25 +1,11 @@
-lft.service 'GoogleApi', ['$window', 'GOOGLE', ($window, GOOGLE) ->
+lft.service 'GoogleApi', ['$window', '$http', '$q', ($window, $http, $q) ->
 
-  auth_url = do ->
-    base = "https://accounts.google.com/o/oauth2/auth"
-    params =
-      response_type: 'code'
-      scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/userinfo.email'].join ' '
-      redirect_uri: GOOGLE.redirect_uri
-      client_id: GOOGLE.client_id
-      approval_prompt: 'force'
-
-    p_string = ''
-    indx = 0
-
-    angular.forEach params, (value, key) ->
-      k_v = [key, value].join '='
-      pre = if indx > 0 then '&' else ''
-      segment = [pre, k_v].join ''
-      p_string += segment
-      indx++
-  
-    return [base, p_string].join '?'
+  getAuthUrl = () ->
+    promise = $q.defer()
+    req = $http.get('/auth/google/url')
+    req.success (data) ->
+      promise.resolve data.auth_url
+    promise.promise
 
   GoogleApi =
 
@@ -29,9 +15,9 @@ lft.service 'GoogleApi', ['$window', 'GOOGLE', ($window, GOOGLE) ->
       delete $window.auth
 
     prompt: () ->
-      _handle = $window.open auth_url, 'login', 'width=800,height=600'
-      $window.auth = GoogleApi.finish
-      _handle != null
-
+      getAuthUrl().then (auth_url) ->
+        _handle = $window.open auth_url, 'login', 'width=800,height=600'
+        $window.auth = GoogleApi.finish
+        _handle != null
 
 ]

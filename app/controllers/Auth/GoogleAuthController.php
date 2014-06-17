@@ -12,17 +12,25 @@ class GoogleAuthController extends Controller {
     $client_secret = Config::get('vendor.google.client_secret');
     $redirect_uri = Config::get('vendor.google.redirect_uri');
     $api_key = Config::get('vendor.google.api_key');
+    $scopes = Config::get('vendor.google.scopes');
 
     $this->client = new Google_Client( );
     $this->client->setClientId($client_id);
     $this->client->setClientSecret($client_secret);
     $this->client->setRedirectUri($redirect_uri);
     $this->client->setDeveloperKey($api_key);
+    $this->client->setScopes($scopes);
     $this->oauth2 = new Google_Service_Oauth2($this->client);
     $this->plus = new Google_Service_Plus($this->client);
   }
 
-  public function authenticate() {
+  public function getUrl() {
+    return Response::json(array(
+      'auth_url' => $this->client->createAuthUrl()
+    ));
+  }
+
+  public function getCallback() {
     $code = Input::get('code');
     $access_token = false;
     $token_json = '';
