@@ -5,7 +5,8 @@
   "license": "MIT",
   "require": {
     "laravel/framework": "4.2.*",
-    "google/apiclient": "1.0.*@beta"
+    "google/apiclient": "1.0.*@beta",
+    "rhumsaa/uuid": "2.7.1"
   },
   "autoload": {
     "classmap": [
