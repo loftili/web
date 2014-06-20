@@ -11,6 +11,6 @@ return array(
   'name' => array(
     'api_user' => 'dadleyy-ote',
     'api_token' => '1dc46b286a5460dcf397ada000e8be8ecd2c1d33',
-    'testing' => true
+    'app_domain' => 'lofti.li'
   )
 );

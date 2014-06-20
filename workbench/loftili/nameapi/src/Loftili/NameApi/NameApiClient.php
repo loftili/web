@@ -16,9 +16,27 @@ class NameApiClient {
     $this->http_client = new \GuzzleHttp\Client;
   }
 
-  public function registerSubdomain() {
-    $request = $this->prepareRequest('/api/dns/list/lofti.li');
+  public function registerSubdomain($parent_domain, $subdomain_name) {
+    $request = $this->prepareRequest('/api/dns/create/'.$parent_domain);
+
+    $request_body = $this->prepareBody(array(
+      "hostname" => $subdomain_name,
+      "type" => "A"
+    ));
+
+    $request->setBody($request_body);
     $response = $this->http_client->send($request);
+    $resp_obj = json_decode((string)$response->getBody(), true);
+
+    if($this->getApiResultCode($response) !== 100)
+      throw new Exception("Unable to create dns entry.");
+
+    return $resp_obj["record_id"];
+  }
+
+  public function getApiResultCode($response) {
+    $resp_obj = json_decode((string)$response->getBody(), true);
+    return array_key_exists('result', $resp_obj) ? (int)$resp_obj["result"]["code"] : -1;
   }
 
   public function setApiToken($token = "") {
@@ -29,7 +47,12 @@ class NameApiClient {
     $this->api_user = $user;
   }
 
-  public function prepareRequest($api_url) {
+  private function prepareBody($obj) {
+    $json = json_encode($obj);
+    return \GuzzleHttp\Stream\Stream::factory($json);
+  }
+
+  private function prepareRequest($api_url) {
     $api_home = $this->testing ? $this->api_url_test : $this->api_url_live;
     $request = $this->http_client->createRequest('POST', $api_home.$api_url);
     $this->addHeaders($request);

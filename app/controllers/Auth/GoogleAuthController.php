@@ -74,7 +74,6 @@ class GoogleAuthController extends Controller {
     }
 
     $user_json = json_encode(array(
-      "uid" => $app_user->uid,
       "first_name" => $app_user->first_name,
       "last_name" => $app_user->last_name,
       "email" => $app_user->email

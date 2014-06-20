@@ -9,9 +9,6 @@ class CreateUsersTable extends Migration {
     Schema::create('users', function($table) {
       $table->increments('id');
 
-      // consider making this the primary?
-      $table->string('uid')->unique();
-
       $table->string('first_name');
       $table->string('last_name');
       $table->string('email')->unique();
