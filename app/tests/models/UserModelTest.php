@@ -1,25 +1,24 @@
 <?php
 
-use Rhumsaa\Uuid\Uuid;
-
 class UserModelTest extends TestCase {
 
-  public function testUniqueUidError() {
-    $uuid = Uuid::uuid1()."";
+  public function setUp() {
+    $a = User::where('email', '=', 'test@email.com')->first();
+    if($a !== null)
+      $a->delete();
+  }
 
+  public function testDuplicateEmailError() {
     $a = new User;
     $b = new User;
     
     $a->first_name = "test";
     $a->last_name = "test";
-    $a->email = "test2@email.com";
+    $a->email = "test@email.com";
 
     $b->first_name = "test";
     $b->last_name = "test";
     $b->email = "test@email.com";
-
-    $a->uid = $uuid;
-    $b->uid = $uuid;
 
     $a->save();
     $exception_code = false;

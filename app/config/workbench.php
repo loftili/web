@@ -1,6 +1,6 @@
 <?php
 
 return array(
-  'name' => '',
-  'email' => '',
+  'name' => 'Loftili Team',
+  'email' => 'info@lofti.li',
 );

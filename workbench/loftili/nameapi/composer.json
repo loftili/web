@@ -1,0 +1,19 @@
+{
+  "name": "loftili/nameapi",
+  "description": "",
+  "authors": [{
+    "name": "Loftili Team",
+    "email": "info@lofti.li"
+  }],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/support": "4.2.*",
+     "guzzlehttp/guzzle": "4.*"
+  },
+  "autoload": {
+    "psr-0": {
+      "Loftili\\NameApi": "src/"
+    }
+  },
+  "minimum-stability": "stable"
+}

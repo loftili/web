@@ -35,6 +35,7 @@ return array(
     'Illuminate\Validation\ValidationServiceProvider',
     'Illuminate\View\ViewServiceProvider',
     'Illuminate\Workbench\WorkbenchServiceProvider',
+    'Loftili\NameApi\NameApiServiceProvider'
   ),
 
   'manifest' => storage_path().'/meta',

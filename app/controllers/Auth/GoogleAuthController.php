@@ -1,7 +1,5 @@
 <?php
 
-use Rhumsaa\Uuid\Uuid;
-
 class GoogleAuthController extends Controller {
 
   private $client;
@@ -67,8 +65,6 @@ class GoogleAuthController extends Controller {
     $app_user->last_name = $last_name;
     $app_user->first_name = $first_name;
     $app_user->google_id = $google_id;
-
-    $app_user->uid = Uuid::uuid1()."";
 
     try {
       $app_user->save();
