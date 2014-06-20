@@ -1,12 +1,10 @@
 <?php namespace Loftili\NameApi;
 
-class NameApiClient {
+class NameApiClient implements NameApiClientInterface {
 
   private $api_token;
   private $api_user;
   private $api_url_live = "https://api.name.com";
-  private $api_url_test = "https://api.dev.name.com";
-  private $testing = false;
   private $http_client;
 
   function __construct($configuration = array()) {
@@ -29,7 +27,7 @@ class NameApiClient {
     $resp_obj = json_decode((string)$response->getBody(), true);
 
     if($this->getApiResultCode($response) !== 100)
-      throw new Exception("Unable to create dns entry.");
+      throw new NameApiException("Unable to create dns entry.");
 
     return $resp_obj["record_id"];
   }

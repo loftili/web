@@ -23,12 +23,11 @@ class Device extends Eloquent {
       throw $e;
     }
 
-    $api_client = new NameApiClient();
+    $api_client = App::make('nameapi');
     $api_client->setApiToken(Config::get('vendor.name.api_token'));
     $api_client->setApiUser(Config::get('vendor.name.api_user'));
     $dns_id = $api_client->registerSubdomain(Config::get('vendor.name.app_domain'), $this->device_uid);
 
-    $this->dns_id = $dns_id;
     parent::save();
   }
 
