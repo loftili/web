@@ -10,6 +10,7 @@
 /assets/obj
 .sass-cache
 composer.phar
+phpunit.phar
 composer.lock
 .env.*.php
 *.swp
