@@ -127,6 +127,7 @@ While making changes to the asset files, you can run: `grunt watch`, which will 
   --enable-mbregex \
   --enable-sockets \
   --with-zlib \
-  --with-openssl
+  --with-openssl \
+  --enable-bcmath
 ```
 
