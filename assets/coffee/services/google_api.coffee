@@ -1,6 +1,7 @@
 lft.service 'GoogleApi', ['$window', '$http', '$q', ($window, $http, $q) ->
 
   auth_url = null
+  auth_promise = null
 
   getAuthUrl = () ->
     promise = $q.defer()
@@ -16,14 +17,20 @@ lft.service 'GoogleApi', ['$window', '$http', '$q', ($window, $http, $q) ->
   GoogleApi =
 
     finish: (user_info) ->
-      console.log 'finished'
-      console.log user_info
+      auth_promise.resolve user_info
       delete $window.auth
 
     prompt: () ->
+      if auth_promise != null
+        return false
+
+      auth_promise = $q.defer()
+
       getAuthUrl().then (url) ->
         _handle = $window.open url, 'login', 'width=800,height=600'
         $window.auth = GoogleApi.finish
         _handle != null
+
+      auth_promise.promise
 
 ]
