@@ -10,6 +10,6 @@ return array(
   'lottery' => array(2, 100),
   'cookie' => 'lftses',
   'path' => '/',
-  'domain' => '.lofti.local',
+  'domain' => '.lofti.li',
   'secure' => false,
 );

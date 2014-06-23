@@ -60,6 +60,13 @@ class GoogleAuthController extends Controller {
       return App::abort(401, 'Google account not eligible as a loftili account');
     }
 
+    $existing = User::where('email', '=', $email)->where('google_id', '=', $google_id)->first();
+    if($existing !== null) {
+      Auth::loginUsingId($existing->id);
+      Log::debug('User logged in with google plus');
+      return View::make('auth.google_callback')->with('user_info', json_encode($existing));
+    }
+
     $app_user = new User;
     $app_user->email = $email;
     $app_user->last_name = $last_name;
@@ -72,6 +79,8 @@ class GoogleAuthController extends Controller {
       Log::debug('Failed saving google user'.$e);
       return App::abort(401, 'Unable to save the user to the database');
     }
+
+    Auth::loginUsingId($app_user->id);
 
     $user_json = json_encode(array(
       "first_name" => $app_user->first_name,

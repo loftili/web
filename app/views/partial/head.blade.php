@@ -9,4 +9,3 @@
 <link rel="stylesheet" type="text/css" href="/fonts/index.css" />
 <link rel="stylesheet" type="text/css" href="/css/application.css" />
 <!-- end head partial -->
-
