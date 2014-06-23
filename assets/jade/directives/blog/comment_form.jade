@@ -1,0 +1,8 @@
+.comment-form
+  .top
+    .info-area
+      p.heavy posting as {{ AuthManager.getCurrentUser().first_name }}
+      .action-area
+        button.sender(ng-click="send()") send 
+    .writing-area
+      textarea.comment-content

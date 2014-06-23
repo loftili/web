@@ -1,0 +1,28 @@
+[lft-blog-comment-form]
+  width: 100
+  border-top: 5px solid darken($text-input-bg-color, 5%)
+  padding: 0 5px 10px 5px
+
+  .top
+    +outer-container
+    padding: 10px 0
+
+  .info-area
+    +span-columns(2)
+    padding: 0 0 5px 0
+
+  .writing-area
+    +span-columns(10)
+    +omega
+    textarea
+      width: 100%
+      height: 120px
+      margin: 0 0 5px 0
+      border-radius: 2px
+      box-shadow: none
+      border: 2px solid darken($text-input-bg-color, 5%)
+
+  .action-area
+    button.sender
+      font-size: 16px
+

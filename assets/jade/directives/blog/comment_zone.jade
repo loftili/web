@@ -1,4 +1,6 @@
 .comment-zone
   h3.bold comments
-  .comment-form(ng-if="AuthManager.getCurrentUser() !== null")
-  .comment-login(ng-if="AuthManager.getCurrentUser() === null" lft-blog-login-form)
+  .comment-form-container(ng-if="AuthManager.getCurrentUser() !== null")
+    .writer(lft-blog-comment-form)
+  .comment-login-container(ng-if="AuthManager.getCurrentUser() === null")
+    .login(lft-blog-login-form)

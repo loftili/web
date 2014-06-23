@@ -1,8 +1,21 @@
 button
   +linear-gradient(to bottom, #fff, #f5f5f5)
+  box-shadow: 0px 0px 1px 0px $shadow-color
   display: block
   border: none
   outline: none
   font-family: $bold-family
   cursor: pointer
 
+textarea, input[type="text"]
+  font-family: $plain-family
+  border: 0
+  outline: none
+  background: $text-input-bg-color
+  box-shadow: 0px 0px 1px 0px $shadow-color
+  padding: 2px 5px
+
+
+textarea
+  padding: 5px
+  resize: none
