@@ -9,8 +9,7 @@
     <div ng-view></div>
   </div>
   <footer class="main" lft-footer></footer>
-  <script src="/js/application.js" type="text/javascript"></script>
-  @include('partial.google-analytics')
+  @include('partial.scripts')
   @yield('scripts')
 </body>
 </html>
