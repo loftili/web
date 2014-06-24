@@ -1,13 +1,18 @@
-lft.directive 'lftBlogCommentForm', [() ->
+lft.directive 'lftBlogCommentForm', ['BlogApi', (BlogApi) ->
 
   lftBlogCommentForm =
     restrict: 'EA'
     replace: true
     templateUrl: 'directives.blog.comment_form'
-    link: ($scope, $element, $attrs) ->
+    require: '^lftBlogPost'
+    link: ($scope, $element, $attrs, BlogPost) ->
 
       $scope.send = () ->
-        console.log 'posting comment'
+        comment = new BlogApi.Comment
+          comment: $scope.comment
+          post_id: BlogPost.post_id
+        comment.$save()
+
 
 
 ]

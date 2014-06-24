@@ -82,6 +82,7 @@ module.exports = function() {
         src: [
           'bower_components/angular/angular.js', 
           'bower_components/angular-route/angular-route.js', 
+          'bower_components/angular-resource/angular-resource.js', 
           'bower_components/d3/d3.js', 
           'assets/obj/js/app.js', 
           'assets/obj/js/templates.js'
