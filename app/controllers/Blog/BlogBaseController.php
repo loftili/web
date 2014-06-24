@@ -3,12 +3,13 @@
 class BlogBaseController extends BaseController {
 
   public function home() {
-    $posts = BlogPost::where('post_status', '=', 'publish')->get();
+    $posts = BlogPost::where('post_status', '=', 'publish')->orderBy('post_date', 'DESC')->get();
     foreach($posts as $post) {
       $author = $post->author()->first();
       $post->author = $author;
       $post->timestamp = strtotime($post->post_date) * 1000;
     }
+
     return View::make('blog.index')->with('posts', $posts);
   }
 
