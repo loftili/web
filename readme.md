@@ -1,4 +1,4 @@
-# Loftili - web
+# Loftili - web [![Build Status](http://jenkins.sizethreestudios.com/buildStatus/icon?job=loftili-web)](http://jenkins.sizethreestudios.com/job/loftili-web/)
 
 Loftili web is the complimentary web application that supports and manages the loftili core web application instances. The goal of this application will be to support users and allow them to manage things like:
 
