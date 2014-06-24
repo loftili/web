@@ -6,8 +6,7 @@
   "require": {
     "laravel/framework": "4.2.*",
     "google/apiclient": "1.0.*@beta",
-    "rhumsaa/uuid": "2.7.1",
-    "moontoast/math": "*"
+    "rhumsaa/uuid": "2.7.1"
   },
   "autoload": {
     "classmap": [
