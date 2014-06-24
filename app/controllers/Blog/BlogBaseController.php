@@ -1,6 +1,6 @@
 <?php
 
-class BlogController extends BaseController {
+class BlogBaseController extends BaseController {
 
   public function home() {
     $posts = BlogPost::where('post_status', '=', 'publish')->get();
@@ -19,7 +19,7 @@ class BlogController extends BaseController {
     if($post == null)
       return $this->singleBySlug($slug);
     else
-      return $post->post_status === "publish" ? Redirect::to('/blog/'.$post->getUrlSlug()) : Redirect::route('blog_root');
+      return $post->post_status === "publish" ? Redirect::to('/blog/posts/'.$post->getUrlSlug()) : Redirect::route('blog_root');
   }
 
   private function singleBySlug($slug) {
