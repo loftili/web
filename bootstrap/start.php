@@ -3,7 +3,7 @@
 $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(function() {
-  if(array_key_exists('LOFT_PRD', $_SERVER))
+  if(file_exists(__DIR__.'../.prodflag'))
     return 'production';
   else
     return 'local';
