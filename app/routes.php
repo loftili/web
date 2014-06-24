@@ -10,8 +10,8 @@ Route::group(array('prefix' => 'auth'), function() {
 });
 
 Route::group(array('prefix' => 'blog'), function() {
-  Route::get('/', 'BlogBaseController@home');
-  Route::get('/posts/{slug}', array('as' => 'blog_root', 'uses' => 'BlogBaseController@single'));
+  Route::get('/', array('as' => 'blog_root', 'uses' => 'BlogBaseController@home'));
+  Route::get('/posts/{slug}', 'BlogBaseController@single');
   Route::resource('comments', 'BlogCommentController');
 });
 
